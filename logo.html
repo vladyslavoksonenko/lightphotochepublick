@@ -1,0 +1,241 @@
+!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Концепти Логотипу | Light Photo Che</title>
+    <!-- Підключення стильних шрифтів від Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300;400&family=Pinyon+Script&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #222222;
+            --muted-color: #777777;
+            --card-bg: #ffffff;
+            --border-color: #e6e0d8;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #eaeaea;
+            --muted-color: #aaaaaa;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-weight: 300;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .theme-btn {
+            background-color: transparent;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .theme-btn:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 60px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 300px;
+        }
+
+        .concept-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted-color);
+            margin-bottom: 40px;
+            width: 100%;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Subtitle style used across most logos */
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--muted-color);
+            margin-top: 15px;
+        }
+
+        /* Option 1: Editorial */
+        .opt-1 .main-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+        .opt-1 .italic {
+            font-style: italic;
+            color: #9a8a78; /* Soft aesthetic color */
+        }
+
+        /* Option 2: Minimalist Modern */
+        .opt-2 .main-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 200;
+            letter-spacing: 10px;
+            margin-right: -10px; /* offset for last letter spacing */
+        }
+
+        /* Option 3: Personal Signature */
+        .opt-3 .main-text {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 4rem;
+            line-height: 0.8;
+            font-weight: 400;
+        }
+
+        /* Option 4: Cinematic */
+        .opt-4 .main-text {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+        }
+        
+        /* Option 5: Creative Monogram */
+        .opt-5 .monogram {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            margin-right: -8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .opt-5 .dot {
+            height: 4px;
+            width: 4px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+        }
+        .opt-5 .bottom-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Варіанти Логотипу</h1>
+        <p style="color: var(--muted-color); margin-bottom: 20px; font-weight: 300;">Натисніть кнопку, щоб перевірити, як логотипи виглядають на темному фоні.</p>
+        <button class="theme-btn" onclick="toggleTheme()">Змінити фон</button>
+    </div>
+
+    <div class="grid">
+        
+        <!-- Концепт 1 -->
+        <div class="logo-card opt-1">
+            <div class="concept-title">Концепт 1: Журнальний (Editorial)</div>
+            <div class="main-text">LIGHT PHOTO <span class="italic">Che</span></div>
+            <div class="subtitle">Фотограф Черкаси | Контент-мейкер</div>
+        </div>
+
+        <!-- Концепт 2 -->
+        <div class="logo-card opt-2">
+            <div class="concept-title">Концепт 2: Абсолютний мінімалізм</div>
+            <div class="main-text">LIGHT PHOTO CHE</div>
+            <div class="subtitle">Фотограф Черкаси | Контент-мейкер</div>
+        </div>
+
+        <!-- Концепт 3 -->
+        <div class="logo-card opt-3">
+            <div class="concept-title">Концепт 3: Особистий підпис (Романтика)</div>
+            <div class="main-text">Light Photo Che</div>
+            <div class="subtitle">Фотограф Черкаси | Контент-мейкер</div>
+        </div>
+
+        <!-- Концепт 4 -->
+        <div class="logo-card opt-4">
+            <div class="concept-title">Концепт 4: Кінематографічний</div>
+            <div class="main-text">LIGHT PHOTO CHE</div>
+            <div class="subtitle">Фотограф Черкаси | Контент-мейкер</div>
+        </div>
+
+        <!-- Концепт 5 -->
+        <div class="logo-card opt-5">
+            <div class="concept-title">Концепт 5: Монограма + Сучасність</div>
+            <div class="monogram">
+                L <div class="dot"></div> P <div class="dot"></div> C
+            </div>
+            <div class="bottom-text">Light Photo Che</div>
+            <div class="subtitle" style="margin-top: 20px; font-size: 0.55rem;">Фотограф Черкаси | Контент-мейкер</div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+
+</body>
+</html>
