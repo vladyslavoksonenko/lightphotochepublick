@@ -1,0 +1,148 @@
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 20px;
+}
+
+/* Контейнер для повзунка До/Після */
+.compare-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+}
+
+.compare-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* Щоб кліки проходили до input range */
+}
+
+.img-after {
+    z-index: 1; /* Оброблене фото знизу */
+}
+
+.img-before {
+    z-index: 2; /* Необроблене фото зверху */
+    /* Імітуємо сирий RAW-кадр (блідий, менше контрасту) для презентації */
+    filter: grayscale(40%) contrast(80%) brightness(1.1);
+    /* Відсікаємо праву половину за замовчуванням */
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    will-change: clip-path;
+}
+
+/* Невидимий повзунок */
+.slider-range {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    opacity: 0;
+    cursor: ew-resize; /* Курсор стрілочок вліво/вправо */
+    margin: 0;
+}
+
+/* Візуальна лінія та кнопка повзунка — у стилі сайту:
+   тонка акцентна лінія, напівпрозора кнопка з розмиттям, як у меню */
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    /* Лінія плавно зникає біля країв фото */
+    background: linear-gradient(to bottom, transparent, var(--accent) 15%, var(--accent) 85%, transparent);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+    z-index: 3;
+    transform: translateX(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-button {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    background-color: var(--overlay);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Тонкі стрілочки */
+.slider-button::before,
+.slider-button::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border: solid var(--text-main);
+    border-width: 0 1px 1px 0;
+    transition: border-color 0.4s ease;
+}
+
+.slider-button::before {
+    transform: rotate(135deg);
+}
+
+.slider-button::after {
+    transform: rotate(-45deg);
+}
+
+/* Наведення / перетягування / фокус з клавіатури */
+.compare-wrapper:hover .slider-button,
+.slider-range:focus-visible ~ .slider-handle .slider-button {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.compare-wrapper:active .slider-button {
+    transform: scale(0.95);
+    background-color: var(--accent);
+}
+
+.compare-wrapper:active .slider-button::before,
+.compare-wrapper:active .slider-button::after {
+    border-color: var(--bg-primary);
+}
+
+.slider-range:focus-visible ~ .slider-handle .slider-button {
+    outline: 1px solid var(--text-main);
+    outline-offset: 4px;
+}
+
+/* Бейджі "ДО" / "ПІСЛЯ" */
+.badge {
+    position: absolute;
+    top: 15px;
+    padding: 5px 12px;
+    background-color: var(--overlay);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 3;
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease;
+}
+
+.badge-before { left: 15px; }
+.badge-after { right: 15px; }

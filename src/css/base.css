@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+section {
+    padding: 120px 5%;
+    max-width: 1600px; /* Збільшено для 4 колонок */
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+.pricing-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: -40px;
+    margin-bottom: 50px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

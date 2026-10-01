@@ -1,0 +1,99 @@
+/* Оновлений контейнер прайсу */
+.pricing-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки жорстко */
+    gap: 20px;
+    max-width: 1000px; /* Звужено для кращої пропорції 3 колонок */
+    margin: 0 auto 20px auto; /* Відступ знизу для окремої картки */
+}
+
+.price-card {
+    background-color: var(--bg-secondary);
+    padding: 40px 20px; /* Трохи зменшено паддінг для 3-х колонок */
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-color: var(--accent);
+}
+
+.price-card h3 {
+    font-size: 0.9rem; /* Трохи менший шрифт */
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.price-card .price {
+    font-size: 1.6rem; /* Трохи менший шрифт */
+    font-weight: 200;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.price-card .desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 1px;
+    min-height: 40px; /* Фіксована висота для вирівнювання карток */
+}
+
+/* Стилі для окремої картки "Поза чергою" */
+.special-service-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.special-price-card {
+    background-color: var(--bg-secondary);
+    padding: 32px 60px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid var(--accent); /* Товстіша акцентна рамка */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    max-width: 450px; /* Обмеження ширини */
+    width: 100%;
+}
+
+.special-price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(196, 181, 163, 0.2); /* Акцентна тінь */
+}
+
+.special-price-card h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.special-price-card .price {
+    font-size: 2.2rem;
+    font-weight: 200;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.special-price-card .desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "lightphotoche",
+  "private": true,
+  "type": "module",
+  "description": "Light Photo Che — сайт-портфоліо фотографа (Черкаси)",
+  "scripts": {
+    "dev": "node scripts/serve.mjs src 5173",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs && node scripts/serve.mjs dist 4173"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "browserslist": "^4.29.3",
+    "esbuild": "^0.28.2",
+    "html-minifier-terser": "^7.2.0",
+    "lightningcss": "^1.33.0",
+    "sharp": "^0.35.5"
+  }
+}

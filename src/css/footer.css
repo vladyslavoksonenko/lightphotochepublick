@@ -1,0 +1,78 @@
+footer {
+    background-color: var(--bg-secondary);
+    text-align: center;
+    padding: 100px 20px;
+    border-top: 1px solid var(--border);
+}
+
+footer h2 {
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.btn-inst {
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 18px 40px;
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    transition: all 0.4s ease;
+}
+
+.btn-inst:hover {
+    background-color: var(--text-main);
+    color: var(--bg-primary);
+}
+
+/* Кнопки в кольорах соцмереж: форма та розміри ті самі, що й у .btn-inst,
+   рамка прозора, щоб не змінювати висоту кнопки */
+.btn-instagram,
+.btn-telegram,
+.btn-phone {
+    color: #ffffff;
+    border-color: transparent;
+    background: var(--btn-bg) border-box;
+}
+
+.btn-instagram {
+    --btn-bg: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    --btn-glow: rgba(220, 39, 67, 0.35);
+}
+
+.btn-telegram {
+    --btn-bg: #229ed9;
+    --btn-glow: rgba(34, 158, 217, 0.35);
+}
+
+.btn-phone {
+    --btn-bg: #25a244;
+    --btn-glow: rgba(37, 162, 68, 0.35);
+}
+
+.btn-instagram:hover,
+.btn-telegram:hover,
+.btn-phone:hover {
+    background: var(--btn-bg) border-box;
+    color: #ffffff;
+    filter: brightness(1.12);
+    box-shadow: 0 10px 30px var(--btn-glow);
+}
+
+.footer-note {
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 1px;
+}

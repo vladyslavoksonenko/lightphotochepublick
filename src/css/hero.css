@@ -1,0 +1,30 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-image: linear-gradient(var(--overlay), var(--overlay)), url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center 20%;
+    background-attachment: fixed;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 200;
+    letter-spacing: 20px;
+    margin-right: -20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}

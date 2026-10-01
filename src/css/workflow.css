@@ -1,0 +1,187 @@
+/* Порядок роботи (Таймлайн) */
+#workflow {
+    background-color: var(--bg-primary); /* Можна змінити на --bg-secondary для контрасту, якщо треба */
+}
+
+.workflow-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: -40px;
+    margin-bottom: 80px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0;
+}
+
+/* Горизонтальна лінія */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+/* Крапки на лінії */
+.timeline-dot {
+    width: 24px;
+    height: 24px;
+    background-color: var(--bg-primary);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Внутрішня крапка при наведенні */
+.timeline-item:hover .timeline-dot {
+    border-color: var(--accent);
+}
+.timeline-item:hover .timeline-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+}
+
+/* Контент кроку (Цифра + Текст) */
+.timeline-content {
+    position: absolute;
+    width: 180px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Шаховий порядок: непарні зверху, парні знизу */
+.timeline-item:nth-child(odd) .timeline-content {
+    bottom: 100%;
+    margin-bottom: 20px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    top: 100%;
+    margin-top: 20px;
+}
+
+.timeline-number {
+    font-size: 3rem;
+    font-weight: 200;
+    color: var(--accent);
+    opacity: 0.3;
+    margin-bottom: -15px; /* Наїжджання тексту на цифру */
+    font-family: serif; /* Більш класичний вигляд для цифр, як на прикладі */
+    transition: opacity 0.3s ease;
+}
+
+.timeline-item:hover .timeline-number {
+    opacity: 0.8;
+}
+
+.timeline-text {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Іконка інфо (імітація рожевої крапки з вашого прикладу) */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    border-radius: 50%;
+    font-size: 0.5rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    opacity: 0.7;
+    cursor: help;
+    position: relative; /* Додано для позиціонування підказки */
+}
+
+/* Спливаюча підказка (Текст) */
+.info-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 180%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: max-content;
+    max-width: 220px;
+    padding: 10px 15px;
+    background-color: var(--text-main);
+    color: var(--bg-primary);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* Спливаюча підказка (Хвостик) */
+.info-icon::before {
+    content: '';
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--text-main) transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* Анімація появи при наведенні */
+.info-icon:hover::after,
+.info-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
