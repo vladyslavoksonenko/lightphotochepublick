@@ -11,7 +11,7 @@
     aspect-ratio: 4/5;
     border-radius: 4px;
     overflow: hidden;
-    background-color: var(--bg-secondary);
+    /*background-color: var(--bg-secondary);*/
 }
 
 .compare-wrapper img {
@@ -31,7 +31,7 @@
 .img-before {
     z-index: 2; /* Необроблене фото зверху */
     /* Імітуємо сирий RAW-кадр (блідий, менше контрасту) для презентації */
-    filter: grayscale(40%) contrast(80%) brightness(1.1);
+    /*filter: grayscale(40%) contrast(80%) brightness(1.1);*/
     /* Відсікаємо праву половину за замовчуванням */
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
     will-change: clip-path;
